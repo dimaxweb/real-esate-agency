@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+      "target": "ES2022",                       // Specify ECMAScript target version
+      "module": "ES2022",                     // Specify module code generation
+      "lib": ["ES2022"],                        // Specify library files to be included
+      "allowJs": true,                          // Allow JavaScript files to be compiled
+      "outDir": "./dist",                       // Redirect output structure to the directory
+      "rootDir": ".",                       // Specify the root directory of input files
+      "strict": true,                           // Enable all strict type-checking options
+      "moduleResolution": "node",               // Specify module resolution strategy
+      "esModuleInterop": true,                  // Enables emit interoperability for commonjs/es modules
+      "skipLibCheck": true,                     // Skip type checking of all declaration files
+      "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
+      "resolveJsonModule": true,                // Include modules imported with .json extension
+      "noImplicitAny": true,                    // Enable error reporting for expressions and declarations with an implied 'any' type
+      "noImplicitReturns": true,                // Enable error reporting for codepaths that do not explicitly return in a function
+      "noImplicitThis": true,                   // Enable error reporting when 'this' expressions are of type 'any'
+      "noFallthroughCasesInSwitch": true,       // Enable error reporting for fallthrough cases in switch statements
+      "experimentalDecorators": true,           // Enables experimental support for ES decorators
+      "emitDecoratorMetadata": true,            // Enables experimental support for emitting type metadata for decorators
+      "incremental": true,                      // Enable incremental compilation
+      "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo" // Specify a file to store incremental compilation information
+    },
+    "include": [
+      "./*.ts"                             // Include all TypeScript files in the src directory
+    ],
+    "exclude": [
+      "node_modules",                           // Exclude node_modules directory
+      "**/*.spec.ts"                            // Exclude all test files
+    ]
+  }
+  
