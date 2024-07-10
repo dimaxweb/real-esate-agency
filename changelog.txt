@@ -1,1 +1,7 @@
-
+ Frontend UI
+####
+Add background images
+Leave only relevant items on menu
+Leave relevant pages and paths to them
+Remove settings page
+###

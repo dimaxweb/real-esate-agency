@@ -9,7 +9,7 @@ import { PropertyService } from '../../../../shared/services/property.service';
 })
 export class Grid2Component {
 
-  @Input() bgImage: string = 'assets/images/inner-background.jpg';
+  @Input() bgImage: string = 'assets/images/inner-pages/submit-property.jpg';
   @Input() title = 'Portfolio';
   @Input() parent = 'Home';
   @Input() child = 'Portfolio';
