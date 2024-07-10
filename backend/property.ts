@@ -37,7 +37,8 @@ class PropertyService {
     const { title, description, price, bedrooms, bathrooms, area, location } = property;
     const query = 'UPDATE property SET title = $1, description = $2, price = $3, bedrooms = $4, bathrooms = $5, area = $6, location = $7 WHERE id = $8 RETURNING *';
     const { rows } = await pool.query(query, [title, description, price, bedrooms, bathrooms, area, location, id]);
-    console.log(rows);
+    console.log("Rows are here:",rows);
+    console.log("Rows are here:", rows);
     return rows[0] || null;
   }
 

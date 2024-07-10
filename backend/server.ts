@@ -51,6 +51,7 @@ app.delete('/properties/:id', async (req, res) => {
 
 export const server = app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Press CTRL+C to stop the server`);
 });
 
 
