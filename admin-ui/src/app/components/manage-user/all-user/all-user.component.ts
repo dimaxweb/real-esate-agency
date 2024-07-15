@@ -11,7 +11,7 @@ export class AllUserComponent {
 
   public userData: users[];
 
-  constructor(private propertyService: PropertyService){
+  constructor(private propertyService: IPropertyService){
     this.propertyService.getUsers().subscribe((response: users[]) => {
       this.userData = response;
     })
