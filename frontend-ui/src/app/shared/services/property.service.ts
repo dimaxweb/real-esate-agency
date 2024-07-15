@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { agencyData, agentsData, agentsDetails, bannerData, blogDetailsData, brandData, currency, faqData, featuredPropertyData, happyClientsData, homeSectionData, latestBlogData, latestForRent, latestForRentData, latestForSale, latestForSaleData, newOfferData, peopleSayData, pricingPlanData, privacyData, propertyCityData, propertyOfDayData, providedServicesData, sliderData, termsData } from '../interface/property';
+import { IPropertyService } from './propery-service-interface';
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class PropertyService {
+export class PropertyService implements IPropertyService {
 
   // Get Currency
   public currencyItem :any = localStorage.getItem('currency');
