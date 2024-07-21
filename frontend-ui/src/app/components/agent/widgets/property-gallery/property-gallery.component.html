@@ -2,7 +2,7 @@
 <p class="font-roboto">Add your property Media</p>
 <label>Media</label>
 <form class="dropzone" id="multiFileUpload">
-  <ngx-dropzone (change)="onSelect($event)" [ngClass]="{ 'is-invalid' : files.length < 1 && validation, 'is-valid' : files.length >= 1}">
+  <ngx-dropzone (change)="onSelect($event)" [ngClass]="{ 'is-invalid' : files.length < 1 && validation, 'is-valid' : files.length >= 1}" [expandable]="true">
     <ngx-dropzone-label>
       <div class="dz-message needsclick">
         <i class="fas fa-cloud-upload-alt"></i>
@@ -10,9 +10,7 @@
       </div>
     </ngx-dropzone-label>
     @for(f of files; track f){
-      <ngx-dropzone-preview [removable]="true" (removed)="onRemove(f)">
-        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
-      </ngx-dropzone-preview>
+      <ngx-dropzone-image-preview [removable]="true" (removed)="onRemove(f)" [file]="f"></ngx-dropzone-image-preview>   
     }
   </ngx-dropzone>
 </form>
