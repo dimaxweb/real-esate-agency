@@ -6,7 +6,8 @@
     <ngx-dropzone-label>
       <div class="dz-message needsclick">
         <i class="fas fa-cloud-upload-alt"></i>
-        <h6>Drop files here or click to upload.</h6><span class="note needsclick">(This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)</span>
+        <h6>Drop image files here or click to upload.</h6>
+    
       </div>
     </ngx-dropzone-label>
     @for(f of files; track f){
@@ -16,8 +17,23 @@
 </form>
 <form class="row gx-3">
   <div class="form-group col-sm-12">
-    <label>Video (mp4)</label>
-    <input type="text" class="form-control" placeholder="mp4 video link">
+    <label>Video</label>
+    <!--Upload video-->
+    <form class="dropzone" id="videopUpload">
+      <ngx-dropzone (change)="onSelectVideo($event)" [ngClass]="{ 'is-invalid' : files.length < 1 && validation, 'is-valid' : files.length >= 1}" [expandable]="true" [multiple]="false">
+        <ngx-dropzone-label>
+          <div class="dz-message needsclick">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h6>Drop  video files here or click to upload.</h6>
+          </div>
+        </ngx-dropzone-label>
+        @for(f of videoFiles; track f){
+          <ngx-dropzone-video-preview [removable]="true" (removed)="onRemove(f)" [file]="f"></ngx-dropzone-video-preview>   
+        }
+      </ngx-dropzone>
+    </form>
+    <!---upload video-->
+
   </div>
   <div class="form-group col-sm-12">
     <label>Additional features</label>
