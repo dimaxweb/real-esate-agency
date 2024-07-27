@@ -12,7 +12,7 @@ export class LeftSideGoogleMapComponent {
 
   public themeLogo = 'assets/images/logo/2.png';
   public footerLogo = 'assets/images/logo/footer-logo.png';
-  public bgImage = 'assets/images/inner-background.jpg';
+  public bgImage = 'assets/images/inner-pages/submit-property.jpg';
   public title = 'Google Map';
   public parent = 'Listing';
   public child = 'Google Map';

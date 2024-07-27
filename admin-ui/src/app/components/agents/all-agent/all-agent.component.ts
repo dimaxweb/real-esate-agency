@@ -12,7 +12,7 @@ export class AllAgentComponent {
   public userData: users[];
 
   constructor(private propertyService: PropertyService){
-    this.propertyService.getUsers().subscribe(response => {
+    this.propertyService.getUsers().subscribe((response: users[]) => {
       this.userData = response;
     })
   }

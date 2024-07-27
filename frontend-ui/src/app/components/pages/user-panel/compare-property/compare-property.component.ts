@@ -9,7 +9,7 @@ export class ComparePropertyComponent {
   
   public themeLogo = 'assets/images/logo/2.png';
   public footerLogo = 'assets/images/logo/footer-logo.png';
-  public bgImage = 'assets/images/inner-background.jpg';
+  public bgImage = 'assets/images/inner-pages/submit-property.jpg';
   public title = 'Property Compare';
   public parent = 'Home';
   public child = 'Compare Property';

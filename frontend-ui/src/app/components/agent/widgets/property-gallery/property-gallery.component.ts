@@ -12,6 +12,7 @@ export class PropertyGalleryComponent {
 
   public activeStep: number = 3;
   public files: File[] = [];
+  public videoFiles: File[] = [];   
   public validation: boolean = false;
 
 
@@ -32,6 +33,10 @@ export class PropertyGalleryComponent {
   onSelect(event: NgxDropzoneChangeEvent) {
     this.files.push(...event.addedFiles);
   }
+  onSelectVideo(event: NgxDropzoneChangeEvent) {
+    this.videoFiles.push(...event.addedFiles);
+  }
+
 
   onRemove(event: File) {
     this.files.splice(this.files.indexOf(event), 1);

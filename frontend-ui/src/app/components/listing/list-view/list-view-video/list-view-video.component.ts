@@ -11,7 +11,7 @@ export class ListViewVideoComponent {
 
   public themeLogo = 'assets/images/logo/2.png';
   public footerLogo = 'assets/images/logo/footer-logo.png';
-  public bgImage = 'assets/images/inner-background.jpg';
+  public bgImage = 'assets/images/inner-pages/submit-property.jpg';
   public title = 'Thumbnail Video';
   public parent = 'Listing';
   public child = 'Thumbnail Video';

@@ -10,7 +10,7 @@ import { PropertyBoxGridService } from '../../../../../shared/services/property-
 export class Grid2NoSidebarComponent {
   public themeLogo = 'assets/images/logo/2.png';
   public footerLogo = 'assets/images/logo/footer-logo.png';
-  public bgImage = 'assets/images/inner-background.jpg';
+  public bgImage = 'assets/images/inner-pages/submit-property.jpg';
   public title = 'No sidebar';
   public parent = 'Listing';
   public child = 'No sidebar';

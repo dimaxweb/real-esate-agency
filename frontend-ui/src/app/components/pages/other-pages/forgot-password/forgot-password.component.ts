@@ -9,7 +9,7 @@ export class ForgotPasswordComponent {
 
   public themeLogo = 'assets/images/logo/2.png';
   public footerLogo = 'assets/images/logo/footer-logo.png';
-  public bgImage = 'assets/images/inner-background.jpg';
+  public bgImage = 'assets/images/inner-pages/submit-property.jpg';
   public title = 'Forgot Password';
   public parent = 'Home';
   public child = 'Forgot Password';

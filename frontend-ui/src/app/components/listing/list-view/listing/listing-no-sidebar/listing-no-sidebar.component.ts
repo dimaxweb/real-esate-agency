@@ -9,7 +9,7 @@ import { PropertyBoxGridService } from '../../../../../shared/services/property-
 export class ListingNoSidebarComponent {
 
   public themeLogo = 'assets/images/logo/2.png';
-  public bgImage = 'assets/images/inner-background.jpg';
+  public bgImage = 'assets/images/inner-pages/submit-property.jpg';
   public title = 'No sidebar';
   public parent = 'Listing';
   public child = 'No sidebar';
