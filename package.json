@@ -13,5 +13,8 @@
     "eslint": "^9.6.0",
     "globals": "^15.8.0",
     "typescript-eslint": "^7.15.0"
+  },
+  "dependencies": {
+    "sharp": "^0.33.4"
   }
 }
