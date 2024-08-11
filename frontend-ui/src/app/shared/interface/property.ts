@@ -513,6 +513,7 @@ export interface pagination{
 }
 
 export interface propertyDetailsData{
+  id: string
   data: detailsData[];
   propertyFilterSlider: img[];
   propertyImages: img[];
@@ -533,6 +534,7 @@ export interface detailsData{
 }
 
 export interface detailsProperty{
+  id:string
   desc?: string;
   features?: feature[];
   url?: string;

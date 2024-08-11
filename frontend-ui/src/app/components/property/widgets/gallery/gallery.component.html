@@ -19,13 +19,16 @@
           }
         </owl-carousel-o>
       </div>
+      {{galleryImagesData | json}}
       <div class="gallery-nav">
         <owl-carousel-o [options]="thumbnailCarouselOptions">
           @for(image of galleryImagesData; track image; let i = $index){
+            {{image | json}}
             @if(image.fileType === 'image' && image.url){
               <ng-template carouselSlide [id]="image.url+i" >
                 <div (click)="owlCar.to(image.url); changeImage(image.url+i)" class="bg-size" [style.background-image]="'url('+image.url+')'">
                   <img [src]="image.url" class="img-fluid" alt="property-image" style="display: none;">
+                   <!-- <app-resized-image [path]="image.url" [cssClass]="'img-fluid'" [width]="100" [height]="100" [propertyId]="property.id" ></app-resized-image> -->
                 </div>
               </ng-template>
             }

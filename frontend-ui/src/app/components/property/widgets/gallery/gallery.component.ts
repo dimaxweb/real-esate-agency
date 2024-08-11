@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { detailsProperty, img } from '../../../../shared/interface/property';
+import { detailsProperty, img, propertyDetails } from '../../../../shared/interface/property';
 
 @Component({
   selector: 'app-gallery',
@@ -10,6 +10,7 @@ export class GalleryComponent {
 
   @Input() galleryImagesData: detailsProperty[];
   @Input() requestForm: boolean = false;
+  @Input () property: detailsProperty;
 
   public selectedImage: string;
 

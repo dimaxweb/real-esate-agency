@@ -142,6 +142,7 @@ import { ModalLoginFormComponent } from './components/common/modal/widgets/modal
 import { ModalRegisterFormComponent } from './components/common/modal/widgets/modal-register-form/modal-register-form.component';
 import { LayoutComponent } from './components/layouts/layout/layout.component';
 import { LatestBlogHorizontalComponent } from './components/footer/widgets/latest-blog-horizontal/latest-blog-horizontal.component';
+import { ResizedImageComponent } from './components/ui/resized-image/resized-image.component';
 
 
 @NgModule({
@@ -272,8 +273,8 @@ import { LatestBlogHorizontalComponent } from './components/footer/widgets/lates
     ClickOutsideDirective,
     LogInModalComponent,
     ModalLoginFormComponent,
+    ResizedImageComponent,
     ModalRegisterFormComponent,
-
     LayoutComponent
   ],
 
@@ -345,7 +346,8 @@ import { LatestBlogHorizontalComponent } from './components/footer/widgets/lates
     CurrencySymbolPipe,
     CommonPropertyFilterListingComponent,
     CommonLeafletMapComponent,
-    AnimationDotsComponent
+    AnimationDotsComponent,
+    ResizedImageComponent
   ],
 })
 export class SharedModule {}

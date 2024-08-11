@@ -14,7 +14,7 @@
                   @for(data of propertyData.data; track data){
                     @if(data.value == 'gallery'){
                       <div class="page-section ratio3_2" id="gallery">
-                        <app-gallery [galleryImagesData]="data.details" [requestForm]=true></app-gallery>
+                        <app-gallery [galleryImagesData]="data.details" [requestForm]=true [property] = "propertyData"></app-gallery>
                       </div>
                     }
                   }
