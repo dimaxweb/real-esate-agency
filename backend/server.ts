@@ -6,6 +6,7 @@ import express, { Request, Response } from 'express';
 import sharp from 'sharp';
 import path from 'path';
 import fs from 'fs';
+import { Handler } from 'serverless-http';
 
 const app = express();
 const PORT = 3000;
@@ -49,7 +50,7 @@ app.use(bodyParser.json());
 //   res.json({ message: 'Property deleted successfully' });
 // });
 
-app.get('/resize', async (req: Request, res: Response) => {
+app.get('/resize', async (req: Request, res: Response, next:any) => {
   const { width, height, imagePath } = req.query;
 
   if (!width || !height || !imagePath) {
@@ -58,10 +59,12 @@ app.get('/resize', async (req: Request, res: Response) => {
 
   const parsedWidth = parseInt(width as string, 10);
   const parsedHeight = parseInt(height as string, 10);
-  const imageFullPath = path.resolve(__dirname, '..', imagePath as string);
+  const __dirname = path.resolve(path.dirname(''));
+  const imageFullPath = path.resolve(__dirname, '.', imagePath as string);
 
   if (!fs.existsSync(imageFullPath)) {
      res.status(404).send('Image not found');
+     next();
   }
 
   try {
@@ -71,10 +74,15 @@ app.get('/resize', async (req: Request, res: Response) => {
 
     res.set('Content-Type', 'image/jpeg');
     res.send(resizedImageBuffer);
-  } catch (error) {
-    res.status(500).send('Error processing image');
+  } catch (error: any) {
+    throw new Error("Exception happened when resizing image", error);
   }
 });
+
+app.use((err:Error, req:Request, res:Response, next:any) => {
+  console.error(err);
+  res.status(500).send('Something broke!');
+})
 
 // Agent routes
 // Similar to property routes, you can define routes for agents

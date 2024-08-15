@@ -12,11 +12,12 @@ export class ResizedImageComponent {
   @Input() height: number;
   @Input() path: string;
   @Input() cssClass: string;
+  @Input() ngStyle:any
   @Input() alt: string;
-  @Input() propertyId: string;
+  @Input() propertyId: string | undefined
 
   public src:string
-  constructor  () {
-    this.src = '/resize?width=' + this.width + '&height=' + this.height + '&path=' + this.path + '&propertyId=' + this.propertyId;
+  ngOnInit  () {
+    this.src = 'api/resize?width=' + this.width + '&height=' + this.height + '&imagePath=' + this.path + '&propertyId=' +"1";
   }
 }
