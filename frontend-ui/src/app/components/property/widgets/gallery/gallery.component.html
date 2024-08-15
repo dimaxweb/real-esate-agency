@@ -10,7 +10,7 @@
             @if(image.fileType === 'image' && image.url){
               <ng-template carouselSlide [id]="image.url" [width]="430">
                   <div class="bg-img">
-                    <app-resized-image [path]="image.url" [cssClass]="'bg-img'" [width]="500" [height]="500" [propertyId]="property?.id"></app-resized-image>
+                    <app-resized-image [path]="image.url" [cssClass]="'bg-img'" [width]="500" [height]="500" [propertyId]="'1'"></app-resized-image>
                   </div>
               </ng-template>
             }
