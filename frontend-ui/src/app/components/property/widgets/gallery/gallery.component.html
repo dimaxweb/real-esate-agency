@@ -10,7 +10,7 @@
             @if(image.fileType === 'image' && image.url){
               <ng-template carouselSlide [id]="image.url" [width]="430">
                   <div class="bg-img">
-                    <app-resized-image [path]="image.url" [cssClass]="'bg-img'" [width]="500" [height]="500" [propertyId]="'1'"></app-resized-image>
+                    <app-resized-image [path]="image.url" [cssClass]="'bg-img'" [width]="800" [height]="800" [propertyId]="'1'"></app-resized-image>
                   </div>
               </ng-template>
             }
@@ -21,12 +21,9 @@
       <div class="gallery-nav">
         <owl-carousel-o [options]="thumbnailCarouselOptions">
           @for(image of galleryImagesData; track image; let i = $index){
-            {{image | json}}
             @if(image.fileType === 'image' && image.url){
-              <ng-template carouselSlide [id]="image.url+i">
-                
-                   <app-resized-image [ngStyle]="{'width': '100px','height' : '100px', 'display':'inline-block'}" [path]="image.url" [cssClass]="'img-fluid'" [width]="100" [height]="100" [propertyId]="property?.id" (click)="owlCar.to(image.url); changeImage(image.url+i)" class="bg-size" ></app-resized-image>
-  
+              <ng-template carouselSlide [id]="image.url+i">   
+                   <app-resized-image [ngStyle]="{'width': '100px','height' : '100px', 'display':'inline-block'}" [path]="image.url" [cssClass]="'img-fluid'" [width]="100" [height]="100" [propertyId]="'1'" (click)="owlCar.to(image.url); changeImage(image.url+i)" class="bg-size" ></app-resized-image>
               </ng-template>
             }
           }

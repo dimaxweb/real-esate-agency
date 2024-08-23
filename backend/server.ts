@@ -72,6 +72,7 @@ app.get('/resize', async (req: Request, res: Response, next:any) => {
       .resize(parsedWidth, parsedHeight)
       .toBuffer();
 
+    //TODO: calculate the content type
     res.set('Content-Type', 'image/jpeg');
     res.send(resizedImageBuffer);
   } catch (error: any) {
@@ -82,6 +83,7 @@ app.get('/resize', async (req: Request, res: Response, next:any) => {
 app.use((err:Error, req:Request, res:Response, next:any) => {
   console.error(err);
   res.status(500).send('Something broke!');
+  next(err);
 })
 
 // Agent routes
