@@ -63,7 +63,7 @@ app.get('/resize', async (req: Request, res: Response, next:any) => {
   const imageFullPath = path.resolve(__dirname, '.', imagePath as string);
 
   if (!fs.existsSync(imageFullPath)) {
-     res.status(404).send('Image not found');
+     res.status(404).send('Image not found imageFullPath');
      next();
   }
 
@@ -73,7 +73,8 @@ app.get('/resize', async (req: Request, res: Response, next:any) => {
       .toBuffer();
 
     //TODO: calculate the content type
-    res.set('Content-Type', 'image/jpeg');
+    const extension = path.extname(imagePath as string).substring(1);
+    res.set('Content-Type', extension);
     res.send(resizedImageBuffer);
   } catch (error: any) {
     throw new Error("Exception happened when resizing image", error);

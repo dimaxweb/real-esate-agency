@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { detailsProperty, img, propertyDetails } from '../../../../shared/interface/property';
-
+import { detailsProperty } from '../../../../shared/interface/property';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
@@ -12,8 +11,13 @@ export class GalleryComponent {
   @Input() requestForm: boolean = false;
   @Input () property: detailsProperty;
 
-  public selectedImage: string;
+  public selectedImage: string | undefined;
+  private currentSelectedImageElement: any;
 
+  public ngAfterViewInit() {
+    this.selectedImage = this.galleryImagesData[0].img;
+    this.currentSelectedImageElement = document.querySelector('.owl-item.active.center');
+  }
   public Options = {
     items: 1,
     loop: true,
@@ -30,7 +34,15 @@ export class GalleryComponent {
     dots: false,
   };
 
-  changeImage(image: string) {
+  changeImage(image: string,event:any) {
+    if (this.currentSelectedImageElement) {
+      this.currentSelectedImageElement.classList.remove('active');
+      this.currentSelectedImageElement.classList.remove('center');
+    }
     this.selectedImage = image;
+    this.currentSelectedImageElement = event.srcElement.closest('.owl-item');
+    this.currentSelectedImageElement.classList.add('active');
+    this.currentSelectedImageElement.classList.add('center');
+   
   }
 }

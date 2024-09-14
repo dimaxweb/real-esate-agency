@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-resized-image',
@@ -12,12 +12,28 @@ export class ResizedImageComponent {
   @Input() height: number;
   @Input() path: string;
   @Input() cssClass: string;
-  @Input() ngStyle:any
+  @Input() customStyle:any
   @Input() alt: string;
-  @Input() propertyId: string | undefined
+  @ViewChild('imgrs') img: any;
 
   public src:string
   ngOnInit  () {
-    this.src = 'api/resize?width=' + this.width + '&height=' + this.height + '&imagePath=' + this.path + '&propertyId=' +"1";
+    this.src = this.path; 
+  }
+  ngAfterViewInit(){
+    this.img.nativeElement.onload = () => {
+      let img   =  this.img.nativeElement;
+      let {clientWidth, clientHeight} = img.parentElement;
+      console.log(clientWidth, clientHeight);
+      if(clientWidth !== 0 || clientHeight !== 0){
+        img.style.display = 'block';
+        img.style.width = clientWidth? clientWidth + 'px': '100%'
+        img.style.height = clientHeight? clientHeight + 'px': 'auto';
+        this.src = `api/resize?width=${clientWidth}&height=${clientHeight}&imagePath=${this.path}`;
+        img.src = this.src;
+        //avoid loop
+        this.img.nativeElement.onload = null;
+      }
+    }
   }
 }
