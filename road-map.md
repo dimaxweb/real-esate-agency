@@ -7,7 +7,7 @@ Version 1/0
 2. Being able to match properties and client in-queries 
    a) The moment some property attribute is updated : make match and save match or delete match ,recalculate 
    b) match object should include : property  & client can have many to many relations 
-   c) Join between client and property is through inquery
+   c) Join between client and property is through in query
    d) The moment client finds , became not interested . Inquiry should be deleted / inactivated
 
 3. Being able to upload images, videos
