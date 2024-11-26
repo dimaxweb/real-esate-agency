@@ -71,8 +71,6 @@ app.get('/resize', async (req: Request, res: Response, next:any) => {
     const resizedImageBuffer = await sharp(imageFullPath)
       .resize(parsedWidth, parsedHeight)
       .toBuffer();
-
-    //TODO: calculate the content type
     const extension = path.extname(imagePath as string).substring(1);
     res.set('Content-Type', extension);
     res.send(resizedImageBuffer);

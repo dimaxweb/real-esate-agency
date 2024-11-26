@@ -11,7 +11,8 @@
               </video>
             }@else {
               <a href="javascript:void(0)" class="bg-size" [style.background-image]="'url('+image.url+')'">
-                <img [src]="image.url" class="bg-img" alt="property-image" style="display: none;" />
+                <!-- <img [src]="image.url" class="bg-img" alt="property-image" style="display: none;" /> -->
+                <app-resized-image [path]="image.url" [cssClass]="'bg-img'" [customStyle]="{'display': 'none'}"></app-resized-image>
               </a>
             }
           </ng-template>
@@ -29,7 +30,7 @@
                 </video>
               }@else {
               <div>
-                <img [src]="image.url" class="img-fluid" alt="property-image">
+                <!-- <img [src]="image.url" class="img-fluid" alt="property-image"> -->
               </div>
             }
             </a>
@@ -47,7 +48,7 @@
           @if(image.fileType === 'image'){
             <ng-template carouselSlide [id]="image.url" [width]="430">
               <a href="javascript:void(0)" class="bg-size" [style.background-image]="'url('+image.url+')'">
-                <img [src]="image.url" class="bg-img" alt="property-image" style="display: none;" />
+                <!-- <img [src]="image.url" class="bg-img" alt="property-image" style="display: none;" /> -->
               </a>
             </ng-template>
           }
@@ -61,7 +62,7 @@
             <ng-template carouselSlide [id]="image.url+i" [width]="80">
               <a (click)="owlCar.to(image.url); changeImage(image.url+i)">
                 <div>
-                  <img [src]="image.url" class="img-fluid" alt="property-image">
+                  <!-- <img [src]="image.url" class="img-fluid" alt="property-image"> -->
                 </div>
               </a>
             </ng-template>
@@ -74,13 +75,13 @@
   <!-- Grid images -->
   <div class="property-slider" [class]="tagClass">
     <a href="javascript:void(0)" class="bg-size" [style.background-image]="'url('+latestForRentData.thumbnail+')'">
-      <img [src]="latestForRentData.thumbnail" class="bg-img" alt="property-image" style="display: none;" />
+      <!-- <img [src]="latestForRentData.thumbnail" class="bg-img" alt="property-image" style="display: none;" /> -->
     </a>
   </div>
 }@else if(listView == true){
   <!-- For List View Images -->
   <a class="bg-size" [style.background-image]="'url('+latestForRentData.thumbnail+')'" gallerize>
-    <img [src]="latestForRentData.thumbnail" class="bg-img" alt="property-image" style="display: none;">
+    <!-- <img [src]="latestForRentData.thumbnail" class="bg-img" alt="property-image" style="display: none;"> -->
   </a>
 }@else {
   <!-- Property Box Carousel -->
@@ -91,7 +92,7 @@
           <ng-template carouselSlide>
             <div class="property-slider" [class]="tagClass">
               <a href="javascript:void(0)" class="bg-size" [style.background-image]="'url('+images.url+')'">
-                <img [src]="images.url" class="bg-img" alt="property-image" style="display: none;" />
+                <!-- <img [src]="images.url" class="bg-img" alt="property-image" style="display: none;" /> -->
               </a>
             </div>
           </ng-template>

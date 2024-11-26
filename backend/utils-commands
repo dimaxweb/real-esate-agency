@@ -1,0 +1,1 @@
+mklink /D "C:\projects\local-estate-management\backend\assets" "C:\projects\local-estate-management\frontend-ui\src\assets" 
