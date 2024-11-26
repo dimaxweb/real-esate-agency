@@ -87,7 +87,7 @@ app.use((err:Error, req:Request, res:Response, next:any) => {
 // Similar to property routes, you can define routes for agents
 
 export const server = app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running with Dimon:) on http://localhost:${PORT}`);
   console.log(`Press CTRL+C to stop the server`);
 });
 
