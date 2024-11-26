@@ -61,12 +61,10 @@ app.get('/resize', async (req: Request, res: Response, next:any) => {
   const parsedHeight = parseInt(height as string, 10);
   const __dirname = path.resolve(path.dirname(''));
   const imageFullPath = path.resolve(__dirname, '.', imagePath as string);
-
   if (!fs.existsSync(imageFullPath)) {
      res.status(404).send('Image not found imageFullPath');
      next();
   }
-
   try {
     const resizedImageBuffer = await sharp(imageFullPath)
       .resize(parsedWidth, parsedHeight)
