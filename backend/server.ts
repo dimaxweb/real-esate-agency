@@ -9,7 +9,7 @@ import session from 'express-session';
 import passport from 'passport';
 import { Strategy as FacebookStrategy, Profile } from 'passport-facebook';
 import dotenv from 'dotenv';
-import pool, { query } from './db';
+import pool from './db.js';
 import { fileURLToPath } from 'url';
 
 // Fix for `__dirname` in ES module scope
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 const SECRET_SESSION_KEY = process.env.SECRET_SESSION_KEY;
 if (SECRET_SESSION_KEY)
   app.use(session({
-    secret: SECRET_SESSION_KEY, // Replace with a strong secret key
+    secret: SECRET_SESSION_KEY, 
     resave: false,
     saveUninitialized: true
   }));
@@ -44,7 +44,6 @@ const APP_SECRET = process.env.APP_SECRET;
 
 async function ensureTableExists() {
     try {
-        // Check if the table exists
         const result = await pool.query(
             `SELECT EXISTS (
                 SELECT FROM pg_catalog.pg_tables
@@ -82,29 +81,26 @@ async function ensureTableExists() {
 
 if (APP_ID && APP_SECRET) {
   passport.use(new FacebookStrategy({
-      clientID: APP_ID, // Replace with your Facebook App ID
-      clientSecret: APP_SECRET, // Replace with your Facebook App Secret
+      clientID: APP_ID, 
+      clientSecret: APP_SECRET, 
       callbackURL: 'https://c4fa-2a0d-6fc2-5a00-a900-a897-7219-b4e-91e1.ngrok-free.app/auth/facebook/callback', // Adjust for your domain
       profileFields: ['id', 'displayName', 'email'] // Request specific fields
   }, async (accessToken: string, refreshToken: string, profile: Profile, done: (error: any, user?: any) => void) => {
       try {
-          // Check if the user already exists in the database
-          const userResult = await query('SELECT * FROM users WHERE id = $1', [profile.id]);
+          const userResult = await pool.query('SELECT * FROM users WHERE id = $1', [profile.id]);
 
           let user;
           if (userResult.rows.length === 0) {
-              // User doesn't exist: Insert new user with ifApproved = false
-              await query(
+              await pool.query(
                   'INSERT INTO users (id, display_name, email, ifApproved) VALUES ($1, $2, $3, $4)',
                   [
                       profile.id,
                       profile.displayName,
                       profile.emails?.[0]?.value || null,
-                      false // Set ifApproved to false by default
+                      false 
                   ]
               );
 
-              // Define the new user object
               user = {
                   id: profile.id,
                   displayName: profile.displayName,
@@ -112,7 +108,7 @@ if (APP_ID && APP_SECRET) {
                   ifApproved: false
               };
           } else {
-              // User exists: Retrieve their details, including ifApproved
+
               const existingUser = userResult.rows[0];
 
               user = {
@@ -123,7 +119,6 @@ if (APP_ID && APP_SECRET) {
               };
           }
 
-          // Pass the user object to the `done` callback
           return done(null, user);
       } catch (error) {
           console.error('Error saving or retrieving user from the database:', error);
@@ -132,7 +127,6 @@ if (APP_ID && APP_SECRET) {
   }));
 }
 
-// Serialize and deserialize user for session management
 passport.serializeUser((user: Express.User, done: (error: any, id?: any) => void) => {
   done(null, user);
 });
@@ -141,7 +135,6 @@ passport.deserializeUser((obj: any, done: (error: any, user?: any) => void) => {
   done(null, obj);
 });
 
-// Extend Express types to include user for TypeScript support
 declare global {
   namespace Express {
       interface User {
@@ -151,7 +144,6 @@ declare global {
   }
 }
 
-// Routes
 app.get('/', (req: Request, res: Response) => {
   res.send('<h1>Home Page</h1><a href="/auth/facebook">Login with Facebook</a>');
 });
@@ -161,7 +153,6 @@ app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/' }),
   (req: Request, res: Response) => {
-      // Successful authentication
       res.redirect('/dashboard');
   });
 
@@ -172,7 +163,6 @@ app.get('/dashboard', (req: Request, res: Response) => {
   res.send(`<h1>Welcome ${req.user?.displayName}</h1><a href="/logout">Logout</a>`);
 });
 
-// Logout route
 app.get('/logout', (req: Request, res: Response, next: any) => {
   req.logout((err: Error) => {
       if (err) {
