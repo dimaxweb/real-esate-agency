@@ -7,8 +7,7 @@ import {
   category,
   propertyStatus,
   propertyType,
-  rooms,
-  location,
+  rooms
 } from '../../../../shared/data/advance-filter';
 
 @Component({
@@ -25,7 +24,6 @@ export class PropertyGeneralDetailsComponent {
 
   public propertyStatus = propertyStatus;
   public propertyType = propertyType;
-  public location = location;
   public rooms = rooms;
   public beds = beds;
   public baths = baths;
