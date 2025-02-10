@@ -1,7 +1,7 @@
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { latestForRent } from "../../interface/property";
 import { Injectable } from "@angular/core";
-import { PropertyService } from "../../services/property.service";
+import { MockPropertyService } from "../../services/mock-property.service";
 import { getPropertyDetails } from "../actions/property-detail.action";
 import { tap } from "rxjs";
 
@@ -22,7 +22,7 @@ export class propertyDetailsModel{
 
 @Injectable()
 export class propertyState{
-  constructor(private propertyService: PropertyService){}
+  constructor(private propertyService: MockPropertyService){}
 
   @Selector()
   static property(state: propertyDetailsModel){

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { category } from '../../../../../data/advance-filter';
-import { PropertyService } from '../../../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../../services/mock-property.service';
 import { latestForRent } from '../../../../../../shared/interface/property';
 
 @Component({
@@ -21,7 +21,7 @@ export class CategoryComponent {
   public totalDuplex: latestForRent[] = []
 
 
-  constructor(private propertyService: PropertyService){
+  constructor(private propertyService: MockPropertyService){
     this.propertyService.latestForRentData().subscribe((data) => {
       data.latestForRent.filter((property) => {
         if(property.params){

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { latestForRent } from '../../../../../shared/interface/property';
-import { PropertyService } from '../../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-common-tab-property-box',
@@ -17,7 +17,7 @@ export class CommonTabPropertyBoxComponent {
   public propertyData: latestForRent[];
   public latestForRentData: latestForRent[];
 
-  constructor(private propertyService: PropertyService) {
+  constructor(private propertyService: MockPropertyService) {
     this.propertyService.latestForRentData().subscribe((response) => {
       this.latestForRentData = response.latestForRent.filter(
         (item) => (item.labels)

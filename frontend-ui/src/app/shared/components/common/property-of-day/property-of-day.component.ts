@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { propertyOfDay } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../services/mock-property.service';
 
 @Component({
   selector: 'app-property-of-day',
@@ -11,7 +11,7 @@ export class PropertyOfDayComponent {
 
   @Input() propertyOfDay: propertyOfDay[];
 
-  constructor(public propertyService: PropertyService){}
+  constructor(public propertyService: MockPropertyService){}
 
   public Options = {
     loop: true,

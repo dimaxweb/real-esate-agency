@@ -17,6 +17,10 @@ import { compareState } from './shared/store/states/compare.state';
 import { propertyState } from './shared/store/states/property-detail.state';
 import { imageState } from './shared/store/states/property-images.state';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import {MockPropertyService} from "./shared/services/mock-property.service";
+import {environment} from "../environments/environment";
+import {PropertyService} from "./shared/services/property.service";
+import {IPropertyService} from "./shared/services/propery-service-interface";
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -49,7 +53,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   providers: [
-  ],
+    // Use the environment flag to switch between providers.
+    {
+      provide: 'IPropertyService',
+      useClass: environment.useMock ? MockPropertyService : PropertyService
+    }],
   exports: [HttpClientModule],
   bootstrap: [AppComponent],
 })

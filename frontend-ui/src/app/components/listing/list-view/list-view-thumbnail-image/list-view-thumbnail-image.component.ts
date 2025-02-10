@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PropertyBoxGridService } from '../../../../shared/services/property-box-grid.service';
 import { Image } from '@ks89/angular-modal-gallery';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../shared/services/mock-property.service';
 import { latestForRent, pagination } from '../../../../shared/interface/property';
 
 
@@ -27,7 +27,7 @@ export class ListViewThumbnailImageComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  constructor(private propertyBoxGridService: PropertyBoxGridService, public propertyService: PropertyService) {}
+  constructor(private propertyBoxGridService: PropertyBoxGridService, public propertyService: MockPropertyService) {}
 
   ngOnInit() {
     document.documentElement.style.setProperty( '--theme-default', this.theme_default3);

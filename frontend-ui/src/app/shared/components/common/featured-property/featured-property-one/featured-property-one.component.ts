@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { currency, featuredProperty } from '../../../../../shared/interface/property';
-import { PropertyService } from '../../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../services/mock-property.service';
 
 @Component({
   selector: 'app-featured-property-one',
@@ -14,7 +14,7 @@ export class FeaturedPropertyOneComponent {
   @Input() tagClass: string = '';
   @Input() currency:currency = this.propertyService.Currency;
 
-  constructor(public propertyService: PropertyService) {}
+  constructor(public propertyService: MockPropertyService) {}
 
   public Options = {
     items: 1,

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { latestForRent } from '../../../shared/interface/property';
-import { PropertyService } from '../../../shared/services/property.service';
+import { MockPropertyService } from '../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-modern',
@@ -19,7 +19,7 @@ export class ModernComponent {
 
   public latestForRentData: latestForRent[];
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: MockPropertyService) {}
 
   ngOnInit() {
     document.documentElement.style.setProperty('--theme-default',this.theme_default3);

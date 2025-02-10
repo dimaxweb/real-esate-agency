@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { latestForRent, latestForRentData } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-slider-filter-latest-rent',
@@ -21,7 +21,7 @@ export class SliderFilterLatestRentComponent {
 
   public latestForRentData: latestForRent[] = [];
 
-  constructor(public propertyService: PropertyService) {}
+  constructor(public propertyService: MockPropertyService) {}
 
   ngOnInit() {
     this.propertyService.latestForRentData().subscribe((response) => {

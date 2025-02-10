@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { latestForRent } from '../../../../../shared/interface/property';
-import { PropertyService } from '../../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../services/mock-property.service';
 import { addCompareItem } from '../../../../../shared/store/actions/compare.action';
 import { addWishlistItem } from '../../../../store/actions/wishlist.action';
 
@@ -30,7 +30,7 @@ export class PropertyBoxThreeComponent {
   };
 
   constructor(
-    public propertyService: PropertyService, 
+    public propertyService: MockPropertyService,
     private store: Store, 
     private route: ActivatedRoute,
     private router: Router){}

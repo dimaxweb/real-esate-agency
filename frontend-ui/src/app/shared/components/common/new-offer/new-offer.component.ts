@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PropertyService } from '../../../services/property.service';
+import { MockPropertyService } from '../../../services/mock-property.service';
 import { newOffer } from '../../../interface/property';
 
 @Component({
@@ -27,7 +27,7 @@ export class NewOfferComponent {
   }
 }
 
-  constructor(private propertyService : PropertyService) { }
+  constructor(private propertyService : MockPropertyService) { }
 
   ngOnInit(){
     this.propertyService.newOfferData().subscribe(response => {

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { latestForRent, propertyDetailsData } from '../../../shared/interface/property';
-import { PropertyService } from '../../../shared/services/property.service';
+import { MockPropertyService } from '../../../shared/services/mock-property.service';
 import { imageState } from '../../../shared/store/states/property-images.state';
 import { getImages } from '../../../shared/store/actions/property-images.action';
 
@@ -30,7 +30,7 @@ export class PropertyImageBoxComponent {
 
   @Select(imageState.images) image$: Observable<latestForRent[]>;
 
-  constructor(private propertyService: PropertyService,private route: ActivatedRoute,private store: Store) {
+  constructor(private propertyService: MockPropertyService, private route: ActivatedRoute, private store: Store) {
     this.route.queryParams.subscribe((params) => {
       this.getId = params['id']
     })

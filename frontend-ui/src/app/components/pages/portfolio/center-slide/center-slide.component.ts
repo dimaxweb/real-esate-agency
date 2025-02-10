@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { parallaxImage } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-center-slide',
@@ -30,7 +30,7 @@ export class CenterSlideComponent {
     },
   };
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: MockPropertyService) {}
 
   ngOnInit() {
     document.documentElement.style.setProperty('--theme-default', this.theme_default3);

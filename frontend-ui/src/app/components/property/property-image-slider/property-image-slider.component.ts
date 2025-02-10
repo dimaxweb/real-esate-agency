@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { latestForRent, propertyDetailsData } from '../../../shared/interface/property';
-import { PropertyService } from '../../../shared/services/property.service';
+import { MockPropertyService } from '../../../shared/services/mock-property.service';
 import { propertyState } from '../../../shared/store/states/property-detail.state';
 import { getPropertyDetails } from '../../../shared/store/actions/property-detail.action';
 
@@ -31,7 +31,7 @@ export class PropertyImageSliderComponent {
   @Select(propertyState.property) property$: Observable<latestForRent[]>;
 
   constructor(
-    private propertyService: PropertyService,
+    private propertyService: MockPropertyService,
     private store: Store,
     private route: ActivatedRoute)
     {

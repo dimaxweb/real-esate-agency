@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { tap } from "rxjs";
 import { latestForRent } from "../../interface/property";
-import { PropertyService } from "../../services/property.service";
+import { MockPropertyService } from "../../services/mock-property.service";
 import { getCategory } from "../actions/category.action";
 
 export class categoryModel {
@@ -27,7 +27,7 @@ export class categoryState {
   public date1: Date;
   public date2: Date;
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: MockPropertyService) {}
 
   @Selector()
   static category(state: categoryModel) {

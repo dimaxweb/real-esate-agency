@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { peopleSay } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-enterprise-people-say',
@@ -14,7 +14,7 @@ export class EnterprisePeopleSayComponent {
 
   public peopleSayData: peopleSay[];
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: MockPropertyService) {}
   ngOnInit() {
     this.propertyService.peopleSayData().subscribe((response) => {
       this.peopleSayData = response.peopleSay.filter(

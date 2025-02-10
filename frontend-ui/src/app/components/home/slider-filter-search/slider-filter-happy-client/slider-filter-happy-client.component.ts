@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { happyClients } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-slider-filter-happy-client',
@@ -14,7 +14,7 @@ export class SliderFilterHappyClientComponent {
 
   public happyClientsData: happyClients[] = [];
 
-  constructor(private propertyService : PropertyService) { }
+  constructor(private propertyService : MockPropertyService) { }
 
   ngOnInit(){
     this.propertyService.happyClientsData().subscribe(response => {
