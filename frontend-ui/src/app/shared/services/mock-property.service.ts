@@ -8,13 +8,13 @@ import { IPropertyService } from './propery-service-interface';
   providedIn: 'root',
 })
 
-export class PropertyService implements IPropertyService {
+export class MockPropertyService implements IPropertyService {
 
   // Get Currency
   public currencyItem :any = localStorage.getItem('currency');
   public currency : currency = JSON.parse(this.currencyItem)
 
-  public Currency = this.currency || { name: 'Dollar', currency: 'USD',symbol: "$", price: 1 }
+  public Currency = this.currency || { name: 'Shekel', currency: 'NIS',symbol: "₪", price: 1 }
 
   constructor(private http: HttpClient) {}
 
