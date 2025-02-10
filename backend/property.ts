@@ -1,5 +1,5 @@
 // property.ts
-import pool from './db.js';
+import pool from './db.ts';
 
 
 interface Property {
@@ -17,11 +17,10 @@ import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
-
 export class PropertyService {
 
 
-  private query<T>(sql: string, params?: any[]): Observable<T[]> {
+  private  query<T>(sql: string, params?: any[]): Observable<T[]> {
     return from(pool.query(sql, params)).pipe(map(result => result.rows));
   }
 
@@ -29,7 +28,7 @@ export class PropertyService {
     return this.query<Property>('SELECT * FROM properties WHERE type = $1', ['home_slider']);
   }
 
-  propertyData(): Observable<Property[]> {
+  propertyData(type: string): Observable<Property[]> {
     return this.query<Property>('SELECT * FROM properties WHERE type = $1', ['sale']);
   }
 
@@ -53,12 +52,9 @@ export class PropertyService {
     return this.query<Property>('SELECT * FROM properties WHERE type = $1', ['banner']);
   }
 
-
-
   propertyOfDayData(): Observable<Property[]> {
     return this.query<Property>('SELECT * FROM properties WHERE type = $1', ['property_of_day']);
   }
-
 
   propertyDetailsData(id: number): Observable<Property> {
     return this.query<Property>('SELECT * FROM properties WHERE id = $1', [id]).pipe(
@@ -82,6 +78,10 @@ export class PropertyService {
 
   getPropertyDetail(id: number): Observable<Property[]> {
     return this.query<Property>('SELECT * FROM properties WHERE id = $1', [id]);
+  }
+
+  async updateProperty(id: number, property: Property) {
+    return this.query<Property>('Update properties * FROM properties WHERE id = $1', [id]);
   }
 
   public getPager(
@@ -132,4 +132,5 @@ export class PropertyService {
 
 
 
-export default new PropertyService();
+export default new PropertyService;
+

@@ -1,54 +1,45 @@
 // server.ts
 import bodyParser from 'body-parser';
-import propertyService from './property.js';
-// import agentService from './agent';
+import propertyService from './property.ts';
+import agentService from './agent'
+
+
 import express, { Request, Response } from 'express';
 import sharp from 'sharp';
 import path from 'path';
 import fs from 'fs';
 import { Handler } from 'serverless-http';
 
-const app = express();
+export const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
 
 // Property routes
-// app.get('/properties', async (req, res) => {
-//   const properties = await propertyService.getAllProperties();
-//   res.json(properties);
-// });
+app.get('/properties', async (req, res) => {
+  const properties =  propertyService.propertyData(req.get('type') || 'sale');
+  res.json(properties);
+});
 
-// app.get('/properties/:id', async (req, res) => {
-//   const id = parseInt(req.params.id);
-//   const property = await propertyService.getPropertyById(id);
-//   if (property) {
-//     res.json(property);
-//   } else {
-//     res.status(404).json({ error: 'Property not found' });
-//   }
-// });
+app.get('/properties/:id', async (req, res) => {
+  const id = parseInt(req.params.id);
+  const property =  propertyService.getPropertyDetail(id);
+  if (property) {
+    res.json(property);
+  } else {
+    res.status(404).json({ error: 'Property not found' });
+  }
+});
 
-// app.post('/properties', async (req, res) => {
-//   const property = await propertyService.createProperty(req.body);
-//   res.json(property);
-// });
-
-// app.put('/properties/:id', async (req, res) => {
-//   const id = parseInt(req.params.id);
-//   const updatedProperty = await propertyService.updateProperty(id, req.body);
-//   if (updatedProperty) {
-//     res.json(updatedProperty);
-//   } else {
-//     res.status(404).json({ error: 'Property not found' });
-//   }
-// });
-
-// app.delete('/properties/:id', async (req, res) => {
-//   const id = parseInt(req.params.id);
-//   await propertyService.deleteProperty(id);
-//   res.json({ message: 'Property deleted successfully' });
-// });
+app.put('/properties/:id', async (req, res) => {
+  const id = parseInt(req.params.id);
+  const updatedProperty = await propertyService.updateProperty(id, req.body);
+  if (updatedProperty) {
+    res.json(updatedProperty);
+  } else {
+    res.status(404).json({ error: 'Property not found' });
+  }
+});
 
 app.get('/resize', async (req: Request, res: Response, next:any) => {
   const { width, height, imagePath } = req.query;
@@ -79,7 +70,7 @@ app.get('/resize', async (req: Request, res: Response, next:any) => {
 
 app.use((err:Error, req:Request, res:Response, next:any) => {
   console.error(err);
-  res.status(500).send('Something broke!');
+  res.status(500).send(err);
   next(err);
 })
 
