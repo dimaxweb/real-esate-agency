@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { latestBlog } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-enterprise-latest-blog',
@@ -14,7 +14,7 @@ export class EnterpriseLatestBlogComponent {
 
   public latestBlogData: latestBlog[] = [];
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: MockPropertyService) {}
 
   ngOnInit() {
     this.propertyService.latestBlogData().subscribe((response) => {

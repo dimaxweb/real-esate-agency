@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { latestForRent, latestForSale } from '../../../shared/interface/property';
-import { PropertyService } from '../../../shared/services/property.service';
+import { MockPropertyService } from '../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-modules-property',
@@ -34,7 +34,7 @@ export class ModulesPropertyComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: MockPropertyService) {}
 
   ngOnInit() {
     this.propertyService.latestForRentData().subscribe((response) => {

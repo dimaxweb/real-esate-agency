@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { pricingPlan } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-corporate-pricing-plan',
@@ -17,7 +17,7 @@ export class CorporatePricingPlanComponent {
 
   public pricingPlan : pricingPlan[] = []
 
-  constructor(public propertyService : PropertyService) { }
+  constructor(public propertyService : MockPropertyService) { }
 
   ngOnInit(){
     this.propertyService.pricingPlanData().subscribe(response => {

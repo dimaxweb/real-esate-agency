@@ -1,7 +1,7 @@
 import { Action, Selector, State, StateContext } from "@ngxs/store"
 import { latestForSale } from "../../interface/property"
 import { Injectable } from "@angular/core"
-import { PropertyService } from "../../services/property.service"
+import { MockPropertyService } from "../../services/mock-property.service"
 import { getImages } from "../actions/property-images.action"
 import { tap } from "rxjs"
 
@@ -23,7 +23,7 @@ export class imagesModel{
 
 @Injectable()
 export class imageState{
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: MockPropertyService) {}
 
   @Selector()
   static images(state: imagesModel){

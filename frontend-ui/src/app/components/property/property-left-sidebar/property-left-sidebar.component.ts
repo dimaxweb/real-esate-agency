@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { tabData } from '../../../shared/data/sticky-tab';
 import { homeSectionSlider, latestForRent, propertyDetailsData } from '../../../shared/interface/property';
-import { PropertyService } from '../../../shared/services/property.service';
+import { MockPropertyService } from '../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-property-left-sidebar',
@@ -27,7 +27,7 @@ export class PropertyLeftSidebarComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: MockPropertyService) {}
 
   ngOnInit() {
     document.documentElement.style.setProperty('--theme-default', this.theme_default3);

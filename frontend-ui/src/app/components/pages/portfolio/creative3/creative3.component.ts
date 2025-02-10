@@ -3,7 +3,7 @@ import { Gallery, ImageSize, ThumbnailsPosition } from 'ng-gallery';
 import { Lightbox } from 'ng-gallery/lightbox';
 import { NgxMasonryOptions } from 'ngx-masonry';
 import { creative3, gridImage } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-creative3',
@@ -28,7 +28,7 @@ export class Creative3Component {
   public masonryOptions: NgxMasonryOptions = {};
 
   constructor(
-    private propertyService: PropertyService,
+    private propertyService: MockPropertyService,
     public gallery: Gallery,
     public lightbox: Lightbox
   ) {}

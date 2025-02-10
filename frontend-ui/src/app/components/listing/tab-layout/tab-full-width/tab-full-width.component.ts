@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { PropertyBoxGridService } from '../../../../shared/services/property-box-grid.service';
 import { latestForRent } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-tab-full-width',

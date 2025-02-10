@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { agents } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../shared/services/mock-property.service';
 
 @Component({
   selector: 'app-corporate-agents',
@@ -16,7 +16,7 @@ export class CorporateAgentsComponent {
   public title = 'corporate';
   public agentsData: agents[] = [];
 
-  constructor(private propertyService: PropertyService) { }
+  constructor(private propertyService: MockPropertyService) { }
 
   ngOnInit(){
     this.propertyService.agentsData().subscribe(response => {

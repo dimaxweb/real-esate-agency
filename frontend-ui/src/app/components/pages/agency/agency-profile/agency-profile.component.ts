@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { agency, agencyAgent, latestForRent, pagination } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { MockPropertyService } from '../../../../shared/services/mock-property.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
@@ -27,7 +27,7 @@ export class AgencyProfileComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  constructor(private propertyService: PropertyService, private router: Router, private route: ActivatedRoute) {}
+  constructor(private propertyService: MockPropertyService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
     document.documentElement.style.setProperty('--theme-default', this.theme_default3);
