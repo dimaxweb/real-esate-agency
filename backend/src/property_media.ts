@@ -1,5 +1,5 @@
 // property_media.ts
-import pool from './db.ts';
+import pool from './db';
 
 interface PropertyMedia {
   id?: number;

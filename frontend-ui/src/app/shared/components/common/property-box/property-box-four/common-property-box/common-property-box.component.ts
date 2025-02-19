@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { latestForRent } from '../../../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../../services/mock-property.service';
+import { PropertyMockService } from '../../../../../services/property-mock.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class CommonPropertyBoxComponent {
   @Input() propertyData: latestForRent;
 
   constructor(
-    public propertyService: MockPropertyService,
+    public propertyService: PropertyMockService,
     private route: ActivatedRoute,
     private router: Router) {}
 

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Gallery ,ImageItem,ImageSize ,ThumbnailsPosition} from 'ng-gallery';
 import { Lightbox } from 'ng-gallery/lightbox';
 import { currency, featuredProperty } from '../../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../services/mock-property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 
 @Component({
   selector: 'app-featured-property-three',
@@ -31,7 +31,7 @@ export class FeaturedPropertyThreeComponent {
     },
   };
 
-  constructor(public gallery: Gallery, public lightbox: Lightbox, public propertyService: MockPropertyService) {}
+  constructor(public gallery: Gallery, public lightbox: Lightbox, public propertyService: PropertyMockService) {}
 
   openLightBox(url: string){
     const lightboxRef = this.gallery.ref('lightbox');

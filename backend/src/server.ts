@@ -2,8 +2,6 @@
 import bodyParser from 'body-parser';
 import propertyService from './property.ts';
 import agentService from './agent'
-
-
 import express, { Request, Response } from 'express';
 import sharp from 'sharp';
 import path from 'path';
@@ -64,15 +62,9 @@ app.get('/resize', async (req: Request, res: Response, next:any) => {
     res.set('Content-Type', extension);
     res.send(resizedImageBuffer);
   } catch (error: any) {
-    throw new Error("Exception happened when resizing image", error);
+    throw new Error("Exception happened when resizing image");
   }
 });
-
-app.use((err:Error, req:Request, res:Response, next:any) => {
-  console.error(err);
-  res.status(500).send(err);
-  next(err);
-})
 
 // Agent routes
 // Similar to property routes, you can define routes for agents

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Params } from '@angular/router';
 import { currency } from '../../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../services/mock-property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 
 @Component({
   selector: 'app-currency',
@@ -39,7 +39,7 @@ export class CurrencyComponent {
     },
   ]
 
-  constructor(private propertyService: MockPropertyService){}
+  constructor(private propertyService: PropertyMockService){}
   
   openCurrency(){
     this.currencyOpen =! this.currencyOpen;

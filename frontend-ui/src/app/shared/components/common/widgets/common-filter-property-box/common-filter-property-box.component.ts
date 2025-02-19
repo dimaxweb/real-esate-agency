@@ -4,9 +4,10 @@ import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { latestForRent, pagination, tagData } from '../../../../../shared/interface/property';
 import { PropertyBoxGridService } from '../../../../../shared/services/property-box-grid.service';
-import { MockPropertyService } from '../../../../services/mock-property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 import { getCategory } from '../../../../../shared/store/actions/category.action';
 import { categoryState } from '../../../../../shared/store/states/category.state';
+import {PropertyService} from "../../../../services/property.service";
 
 
 @Component({
@@ -68,7 +69,7 @@ export class CommonFilterPropertyBoxComponent {
   @Select(categoryState.category) category$: Observable<latestForRent[]>;
 
   constructor(
-    public propertyService: MockPropertyService,
+    public propertyService: PropertyService,
     private propertyBoxGridService: PropertyBoxGridService,
     private route: ActivatedRoute,
     private router: Router,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { pagination } from '../../../../../shared/interface/property';
 import { PropertyBoxGridService } from '../../../../../shared/services/property-box-grid.service';
-import { MockPropertyService } from '../../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-grid2-left-sidebar',
@@ -26,7 +26,7 @@ export class Grid2LeftSidebarComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  constructor(private propertyBoxGridService: PropertyBoxGridService, public propertyService: MockPropertyService) {}
+  constructor(private propertyBoxGridService: PropertyBoxGridService, public propertyService: PropertyMockService) {}
 
   ngOnInit() {
     document.documentElement.style.setProperty('--theme-default', this.theme_default3);

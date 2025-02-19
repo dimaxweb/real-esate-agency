@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Gallery, ImageItem, ImageSize, ThumbnailsPosition } from 'ng-gallery';
 import { Lightbox } from 'ng-gallery/lightbox';
-import { MockPropertyService } from '../../../../services/mock-property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 import { featuredProperty } from '../../../../../shared/interface/property';
 
 @Component({
@@ -14,7 +14,7 @@ export class FeaturedPropertyTwoComponent {
   @Input() featuredProperty: featuredProperty[];
   @Input() tagClass: string;
 
-  constructor(public gallery: Gallery, public lightbox: Lightbox, public propertyService: MockPropertyService){}
+  constructor(public gallery: Gallery, public lightbox: Lightbox, public propertyService: PropertyMockService){}
 
   ngOnInit(){}
 

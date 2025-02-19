@@ -17,7 +17,7 @@ import { compareState } from './shared/store/states/compare.state';
 import { propertyState } from './shared/store/states/property-detail.state';
 import { imageState } from './shared/store/states/property-images.state';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import {MockPropertyService} from "./shared/services/mock-property.service";
+import {PropertyMockService} from "./shared/services/property-mock.service";
 import {environment} from "../environments/environment";
 import {PropertyService} from "./shared/services/property.service";
 import {IPropertyService} from "./shared/services/propery-service-interface";
@@ -39,11 +39,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     CarouselModule,
 
     // Ngxs
-    NgxsModule.forRoot([wishlistState, categoryState, compareState, imageState, propertyState]),
-    NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsStoragePluginModule.forRoot({
-      key: ['wishlist', 'compare'],
-    }),
+    // NgxsModule.forRoot([wishlistState, categoryState, compareState, imageState, propertyState]),
+    // NgxsReduxDevtoolsPluginModule.forRoot(),
+    // NgxsStoragePluginModule.forRoot({
+    //   key: ['wishlist', 'compare'],
+    // }),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -56,7 +56,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     // Use the environment flag to switch between providers.
     {
       provide: 'IPropertyService',
-      useClass: environment.useMock ? MockPropertyService : PropertyService
+      useClass: environment.useMock ? PropertyMockService : PropertyService
     }],
   exports: [HttpClientModule],
   bootstrap: [AppComponent],

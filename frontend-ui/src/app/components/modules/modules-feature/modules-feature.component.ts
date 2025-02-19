@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { featuredProperty, propertyInCity } from '../../../shared/interface/property';
-import { MockPropertyService } from '../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-modules-feature',
@@ -32,7 +32,7 @@ export class ModulesFeatureComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  constructor(private propertyService: MockPropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.featuredPropertyData().subscribe((response) => {

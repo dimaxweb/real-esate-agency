@@ -5,7 +5,7 @@ import { Gallery, ImageSize, ThumbnailsPosition } from 'ng-gallery';
 import { Lightbox } from 'ng-gallery/lightbox';
 import { latestForRent } from '../../../../../shared/interface/property';
 import { PropertyBoxGridService } from '../../../../../shared/services/property-box-grid.service';
-import { MockPropertyService } from '../../../../services/mock-property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 import { addCompareItem } from '../../../../../shared/store/actions/compare.action';
 import { addWishlistItem } from '../../../../store/actions/wishlist.action';
 
@@ -42,7 +42,7 @@ export class PropertyBoxTwoComponent {
     public gallery: Gallery,
     public lightbox: Lightbox,
     private propertyBoxGridService: PropertyBoxGridService,
-    public propertyService: MockPropertyService,
+    public propertyService: PropertyMockService,
     private store: Store,
     private route: ActivatedRoute,
     private router: Router

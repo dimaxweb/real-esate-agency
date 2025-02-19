@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { homeSectionSlider } from '../../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../services/mock-property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 
 @Component({
   selector: 'app-slider-three',
@@ -22,7 +22,7 @@ export class SliderThreeComponent {
     ],
   };
 
-  constructor(public propertyService: MockPropertyService) {}
+  constructor(public propertyService: PropertyMockService) {}
 
 
 }

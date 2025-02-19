@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { slider, sliderImagesData } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-image-content-home-section',
@@ -24,7 +24,7 @@ export class ImageContentHomeSectionComponent {
     },
   };
 
-  constructor(private propertyService: MockPropertyService){
+  constructor(private propertyService: PropertyMockService){
     this.propertyService.getSliderData().subscribe((response) => {
       this.sliderImages = response.slider;
     })

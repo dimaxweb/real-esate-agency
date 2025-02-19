@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { propertyInCity } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-slider-filter-property-in-cities',
@@ -14,7 +14,7 @@ export class SliderFilterPropertyInCitiesComponent {
   @Input() sectionClass: string;
   public propertyInCity: propertyInCity[] = [];
 
-  constructor(private propertyService: MockPropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.propertyInCityData().subscribe((response) => {

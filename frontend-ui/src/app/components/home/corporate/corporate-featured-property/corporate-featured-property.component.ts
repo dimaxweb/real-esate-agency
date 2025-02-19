@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { featuredProperty } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-corporate-featured-property',
@@ -17,7 +17,7 @@ export class CorporateFeaturedPropertyComponent {
 
   public featuredProperty : featuredProperty[] = [];
 
-  constructor(public propertyService : MockPropertyService) { }
+  constructor(public propertyService : PropertyMockService) { }
 
   ngOnInit(){
     this.propertyService.featuredPropertyData().subscribe(response => {

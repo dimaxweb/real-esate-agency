@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { providedServices } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-enterprise-property-service',
@@ -14,7 +14,7 @@ export class EnterprisePropertyServiceComponent {
 
   public providedServices: providedServices[] = [];
 
-  constructor(private propertyService: MockPropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.providesServices().subscribe((response) => {

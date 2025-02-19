@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { currency, pricingPlan } from '../../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../services/mock-property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 
 @Component({
   selector: 'app-pricing-plan-one',
@@ -30,6 +30,6 @@ export class PricingPlanOneComponent {
     },
   };
   
-  constructor(public propertyService: MockPropertyService) {}
+  constructor(public propertyService: PropertyMockService) {}
 
 }

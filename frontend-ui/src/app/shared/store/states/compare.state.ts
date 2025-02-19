@@ -4,6 +4,14 @@ import { ToastrService } from "ngx-toastr";
 import { latestForRent } from "../../interface/property";
 import { addCompareItem, getCompareData, removeCompareItem } from "../actions/compare.action";
 
+
+// @State<compareModel>({
+//   "defaults": {
+//     "data": {
+//       "compare": [],
+//     },
+//   },
+// })
 export class compareModel {
   data: {
     compare : latestForRent[];
@@ -11,14 +19,7 @@ export class compareModel {
 }
 
 
-@State<compareModel>({
-  name: 'compare',
-  defaults: {
-    data: {
-      compare: [],
-    },
-  },
-})
+
 
 @Injectable()
 export class compareState {

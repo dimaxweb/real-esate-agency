@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { banner } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-classic-banner',
@@ -12,7 +12,7 @@ export class ClassicBannerComponent {
   public title = 'classic';
   public bannerData: banner[] = [];
 
-  constructor(private propertyService: MockPropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.bannerData().subscribe((response) => {

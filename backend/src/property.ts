@@ -17,8 +17,7 @@ import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
-export class PropertyService {
-
+class PropertyService {
 
   private  query<T>(sql: string, params?: any[]): Observable<T[]> {
     return from(pool.query(sql, params)).pipe(map(result => result.rows));
@@ -132,5 +131,5 @@ export class PropertyService {
 
 
 
-export default new PropertyService;
+export default new PropertyService();
 

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { latestForRent } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-related-property',
@@ -14,7 +14,7 @@ export class RelatedPropertyComponent {
 
   public latestForRentData: latestForRent[] = [];
 
-  constructor(private propertyService: MockPropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.latestForRentData().subscribe((response) => {

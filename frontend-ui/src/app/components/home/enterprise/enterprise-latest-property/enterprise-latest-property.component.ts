@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { latestForRent } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-enterprise-latest-property',
@@ -15,6 +15,6 @@ export class EnterpriseLatestPropertyComponent {
   public desc = 'Discover New York’s best things to do, restaurants, theatre, nightlife and more';
   public title = 'enterprise';
 
-  constructor(public propertyService: MockPropertyService){}
+  constructor(public propertyService: PropertyMockService){}
 
 }

@@ -3,7 +3,7 @@ import { Gallery, ImageSize, ThumbnailsPosition } from 'ng-gallery';
 import { Lightbox } from 'ng-gallery/lightbox';
 import { NgxMasonryOptions } from 'ngx-masonry';
 import { creative3, gridImage } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-creative4',
@@ -29,7 +29,7 @@ export class Creative4Component {
 
 
   constructor(
-    private propertyService: MockPropertyService,
+    private propertyService: PropertyMockService,
     public gallery: Gallery,
     public lightbox: Lightbox
   ) {}

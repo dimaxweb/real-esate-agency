@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { brand } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-classic-brand',
@@ -12,7 +12,7 @@ export class ClassicBrandComponent {
   public title = 'classic';
   public brandData: brand[] = [];
 
-  constructor(private propertyService: MockPropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.brandData().subscribe((response) => {

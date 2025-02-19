@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { latestForRent } from '../../../shared/interface/property';
-import { MockPropertyService } from '../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-map-v-search',
@@ -17,7 +17,7 @@ export class MapVSearchComponent {
   public theme_default6 = '#f35d43';
   public theme_default7 = '#f34451';
 
-  constructor(private propertyService: MockPropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     document.documentElement.style.setProperty('--theme-default',this.theme_default6);

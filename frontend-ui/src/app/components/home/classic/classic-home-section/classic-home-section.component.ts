@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { homeSectionSlider } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-classic-home-section',
@@ -12,7 +12,7 @@ export class ClassicHomeSectionComponent {
   public title = 'classic';
   public homeSectionSliderData: homeSectionSlider[] = [];
 
-  constructor(public propertyService: MockPropertyService) {}
+  constructor(public propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.homeSliderData().subscribe((response) => {

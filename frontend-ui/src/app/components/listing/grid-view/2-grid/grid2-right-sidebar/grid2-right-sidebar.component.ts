@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MockPropertyService } from '../../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../../shared/services/property-mock.service';
 import { PropertyBoxGridService } from '../../../../../shared/services/property-box-grid.service';
 
 @Component({
@@ -23,7 +23,7 @@ export class Grid2RightSidebarComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  constructor(private propertyBoxGridService: PropertyBoxGridService, public propertyService: MockPropertyService) {}
+  constructor(private propertyBoxGridService: PropertyBoxGridService, public propertyService: PropertyMockService) {}
 
   ngOnInit() {
     document.documentElement.style.setProperty('--theme-default',this.theme_default3);

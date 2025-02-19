@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { latestForRent, pagination } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 import { addCompareItem } from '../../../../shared/store/actions/compare.action';
 import { removeWishlistItem } from '../../../../shared/store/actions/wishlist.action';
 import { wishlistState } from '../../../../shared/store/states/wishlist.state';
@@ -37,7 +37,7 @@ export class FavouritesComponent {
   @Select(wishlistState.getWishListData) wishlistData$: Observable<latestForRent[]>;
 
   constructor(
-    private propertyService: MockPropertyService,
+    private propertyService: PropertyMockService,
     private store:Store,
     private router: Router,
     private route: ActivatedRoute,

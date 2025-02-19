@@ -1,5 +1,5 @@
 // agent.ts
-import pool from './db.ts';
+import pool from './db';
 
 interface Agent {
   id?: number;

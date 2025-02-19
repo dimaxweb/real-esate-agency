@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgxMasonryOptions } from 'ngx-masonry';
 import { latestBlog } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-blog-page-masonry-left-sidebar',
@@ -26,7 +26,7 @@ export class BlogPageMasonryLeftSidebarComponent {
     gutter: 30,
   };
 
-  constructor(private propertyService: MockPropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     document.documentElement.style.setProperty('--theme-default', this.theme_default3);

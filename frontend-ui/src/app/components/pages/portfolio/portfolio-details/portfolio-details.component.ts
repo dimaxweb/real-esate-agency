@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Gallery, ImageSize, ThumbnailsPosition } from 'ng-gallery';
 import { Lightbox } from 'ng-gallery/lightbox';
 import { creative3 } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-portfolio-details',
@@ -24,7 +24,7 @@ export class PortfolioDetailsComponent {
   public theme_default4 = '#ff8c41';
 
   constructor(
-    private propertyService: MockPropertyService,
+    private propertyService: PropertyMockService,
     public gallery: Gallery,
     public lightbox: Lightbox
   ) {}

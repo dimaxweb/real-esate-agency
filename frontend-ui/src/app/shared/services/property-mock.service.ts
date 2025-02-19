@@ -8,7 +8,7 @@ import { IPropertyService } from './propery-service-interface';
   providedIn: 'root',
 })
 
-export class MockPropertyService implements IPropertyService {
+export class PropertyMockService implements IPropertyService {
 
   // Get Currency
   public currencyItem :any = localStorage.getItem('currency');

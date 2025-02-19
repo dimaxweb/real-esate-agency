@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { pagination } from '../../../../../shared/interface/property';
 import { PropertyBoxGridService } from '../../../../../shared/services/property-box-grid.service';
-import { MockPropertyService } from '../../../../services/mock-property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 
 @Component({
   selector: 'app-common-property-filter-listing',
@@ -30,7 +30,7 @@ export class CommonPropertyFilterListingComponent {
   public totalProperty: number;
   public filterValue : string;
 
-  constructor(public propertyService: MockPropertyService) {}
+  constructor(public propertyService: PropertyMockService) {}
 
   receivePropertyTotalData(value: number) {
     this.totalProperty = value;

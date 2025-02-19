@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { happyClients, peopleSay } from '../../../shared/interface/property';
-import { MockPropertyService } from '../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-modules-testimonial',
@@ -33,7 +33,7 @@ export class ModulesTestimonialComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  constructor(private propertyService: MockPropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
   ngOnInit() {
     this.propertyService.peopleSayData().subscribe((response) => {
       this.testimonialData1 = response.peopleSay.filter((item) => item.type == this.testimonialTitle1);

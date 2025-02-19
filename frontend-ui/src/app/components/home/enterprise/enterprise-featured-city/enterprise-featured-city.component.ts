@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { propertyInCity } from '../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../shared/services/mock-property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-enterprise-featured-city',
@@ -15,7 +15,7 @@ export class EnterpriseFeaturedCityComponent {
 
   public propertyInCity: propertyInCity[] = [];
 
-  constructor(private propertyService: MockPropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.propertyInCityData().subscribe((response) => {

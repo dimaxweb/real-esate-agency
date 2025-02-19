@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { banner } from '../../../../../shared/interface/property';
-import { MockPropertyService } from '../../../../services/mock-property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 
 @Component({
   selector: 'app-banner-one',

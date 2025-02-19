@@ -1,15 +1,11 @@
 import { Action, Selector, State, StateContext } from "@ngxs/store";
 import { latestForRent } from "../../interface/property";
 import { Injectable } from "@angular/core";
-import { MockPropertyService } from "../../services/mock-property.service";
+import { PropertyMockService } from "../../services/property-mock.service";
 import { getPropertyDetails } from "../actions/property-detail.action";
 import { tap } from "rxjs";
 
-export class propertyDetailsModel{
-  data: {
-    property: latestForRent[]
-  }
-}
+
 
 @State<propertyDetailsModel>({
   name: 'property',
@@ -19,10 +15,16 @@ export class propertyDetailsModel{
     }
   }
 })
+export class propertyDetailsModel{
+  data: {
+    property: latestForRent[]
+  }
+}
+
 
 @Injectable()
 export class propertyState{
-  constructor(private propertyService: MockPropertyService){}
+  constructor(private propertyService: PropertyMockService){}
 
   @Selector()
   static property(state: propertyDetailsModel){
