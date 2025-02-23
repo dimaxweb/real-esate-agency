@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '@ngxs/store';
 import { Gallery, ImageSize, ThumbnailsPosition } from 'ng-gallery';
 import { Lightbox } from 'ng-gallery/lightbox';
 import { latestForRent } from '../../../../../shared/interface/property';
@@ -43,7 +42,6 @@ export class PropertyBoxTwoComponent {
     public lightbox: Lightbox,
     private propertyBoxGridService: PropertyBoxGridService,
     public propertyService: PropertyMockService,
-    private store: Store,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -67,11 +65,11 @@ export class PropertyBoxTwoComponent {
   }
 
   addWishlist(data: latestForRent) {
-    this.store.dispatch(new addWishlistItem(data));
+    //this.store.dispatch(new addWishlistItem(data));
   }
 
   addCompare(data:latestForRent){
-    this.store.dispatch(new addCompareItem(data));
+    //this.store.dispatch(new addCompareItem(data));
   }
 
   getDetails(id:number){
