@@ -1,14 +1,17 @@
-// db.ts
+import {Pool} from 'pg';
+require('dotenv').config();
 
-import pkg from 'pg';
-const { Pool } = pkg;
-
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'realtor-boost',
-  password: '456789',
-  port: 8001,
+export const pool = new Pool({
+  user: process.env.USER,
+  host: process.env.HOST,
+  database: process.env.DATABASE,
+  password: process.env.PASSWORD,
+  port: Number(process.env.PORT)
 });
 
-export default pool;
+pool.connect()
+  .then(() => console.log("Connected to the database!"))
+  .catch(err  => console.error("Connection error", err));
+
+module.exports = pool;
+

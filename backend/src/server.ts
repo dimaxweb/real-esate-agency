@@ -1,17 +1,18 @@
 // server.ts
 import bodyParser from 'body-parser';
-import propertyService from './property.ts';
-import agentService from './agent'
+import {PropertyService} from './property.js';
 import express, { Request, Response } from 'express';
 import sharp from 'sharp';
 import path from 'path';
 import fs from 'fs';
-import { Handler } from 'serverless-http';
+
 
 export const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.json());
+
+const propertyService = new PropertyService();
 
 // Property routes
 app.get('/properties', async (req, res) => {

@@ -1,5 +1,5 @@
 // property.ts
-import pool from './db.ts';
+import {pool} from './db.js';
 
 
 interface Property {
@@ -17,7 +17,7 @@ import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 
-class PropertyService {
+export class PropertyService {
 
   private  query<T>(sql: string, params?: any[]): Observable<T[]> {
     return from(pool.query(sql, params)).pipe(map(result => result.rows));
@@ -130,6 +130,4 @@ class PropertyService {
 }
 
 
-
-export default new PropertyService();
 
