@@ -48,7 +48,7 @@ export class Client implements IClient {
   created_at?: Date | string;
   updated_at?: Date | string;
 
-  constructor(props:Partial<IClient>) {
+  constructor(props:IClient) {
     this.id = props.id;
     this.user_id = props.user_id;
     this.is_potential = props.is_potential ?? true;
@@ -68,7 +68,7 @@ export class Agent implements IAgent {
   created_at?: Date | string;
   updated_at?: Date | string;
 
-  constructor(props: Partial<IAgent>) {
+  constructor(props: IAgent) {
     this.id = props.id;
     this.user_id = props.user_id;
     this.agency_name = props.agency_name;
@@ -98,7 +98,7 @@ export class Property implements IProperty {
   createdAt?: Date | string;
   updatedAt?: Date | string;
 
-  constructor(props:  Partial<IProperty>) {
+  constructor(props:  IProperty) {
     this.id = props.id;
     this.title = props.title;
     this.description = props.description;
@@ -136,7 +136,7 @@ export class PropertyAddress implements IPropertyAddress {
   updatedAt?: Date | string;
 
   constructor(
-    props: Partial<IPropertyAddress>
+    props: IPropertyAddress
   ) {
     this.id = props.id;
     this.property_id = props.property_id;
@@ -161,7 +161,7 @@ export class WishList implements IWishList {
   created_at?: Date | string;
   updated_at?: Date | string;
 
-  constructor(props:  Partial<IWishList>) {
+  constructor(props:  IWishList) {
     this.id = props.id;
     this.user_id = props.user_id;
     this.property_id = props.property_id;
@@ -232,6 +232,14 @@ export class Country implements ICountry {
   createdAt?: Date | string; // Timestamp for record creation
 
   updatedAt?: Date | string; // Timestamp for record updates
+  constructor(props: ICountry) {
+    this.id = props.id;
+    this.name = props.name;
+    this.code = props.code;
+    this.phone_code = props.phone_code;
+    this.createdAt = props.createdAt ?? new Date().toISOString();
+    this.updatedAt = props.updatedAt ?? new Date().toISOString();
+  }
 }
 
 /**
@@ -247,6 +255,13 @@ export class Region implements IRegion {
   createdAt?: Date | string; // Timestamp for record creation
 
   updatedAt?: Date | string; // Timestamp for record updates
+  constructor(props: IRegion) {
+    this.id = props.id;
+    this.name = props.name;
+    this.country_id = props.country_id;
+    this.createdAt = props.createdAt ?? new Date().toISOString();
+    this.updatedAt = props.updatedAt ?? new Date().toISOString();
+  }
 }
 
 /**
@@ -264,4 +279,12 @@ export class City implements ICity {
   createdAt?: Date | string; // Timestamp for record creation
 
   updatedAt?: Date | string; // Timestamp for record updates
+  constructor(props: ICity) {
+    this.id = props.id;
+    this.name = props.name;
+    this.state_id = props.state_id;
+    this.country_id = props.country_id;
+    this.createdAt = props.createdAt ?? new Date().toISOString();
+    this.updatedAt = props.updatedAt ?? new Date().toISOString();
+  }
 }

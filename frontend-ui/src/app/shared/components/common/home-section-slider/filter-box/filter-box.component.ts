@@ -61,6 +61,8 @@ export class FilterBoxComponent {
   public maxPrice: number;
   public areaArray: number[] = [];
   public maxArea: number;
+  public amount: number;
+
 
 public options: Options = {
     floor: 0,

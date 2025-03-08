@@ -11,11 +11,12 @@
       "resolveJsonModule": true,
       "emitDeclarationOnly": false
     },
-    "include": [
-      "./src/*.ts"                             // Include all TypeScript files in the src directory
-    ],
-    "exclude": [
-      "node_modules",                           // Exclude node_modules directory
-      "**/*.spec.ts"                            // Exclude all test files
-    ]
-  }
+  "include": [
+    "./**/*"                   // Include all files and subfolders
+  ],
+  "exclude": [
+    "node_modules",            // Exclude node_modules folder
+    "dist"                     // Exclude dist folder (output folder)
+  ]
+
+}

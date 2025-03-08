@@ -1,19 +1,21 @@
 import esbuild from 'esbuild';
 import chokidar from 'chokidar';
 import { exec } from 'child_process';
+import { builtinModules } from 'module';
 
 const build = async () => {
   try {
     await esbuild.build({
       entryPoints: ['src/server.ts'], // Change this to your main entry file
       outdir: 'dist', // Output directory
-      format: 'esm', // Compile to ESNext modules
+      format: 'esm', // Compile to CommonJS  modules
       target: 'esnext', // Ensure ESNext output
       bundle: true,
       platform: 'node',
       sourcemap: true,
       minify: false, // Keep it readable for debugging
       logLevel: 'info',
+      external: [...builtinModules]
     });
     console.log('[esbuild] Build completed');
   } catch (error) {
