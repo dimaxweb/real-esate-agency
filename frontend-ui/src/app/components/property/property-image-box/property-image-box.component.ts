@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Select, Store } from '@ngxs/store';
+// import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { latestForRent, propertyDetailsData } from '../../../shared/interface/property';
-import { PropertyService } from '../../../shared/services/property.service';
-import { imageState } from '../../../shared/store/states/property-images.state';
+import { PropertyMockService } from '../../../shared/services/property-mock.service';
+// import { imageState } from '../../../shared/store/states/property-images.state';
 import { getImages } from '../../../shared/store/actions/property-images.action';
 
 @Component({
@@ -28,20 +28,20 @@ export class PropertyImageBoxComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  @Select(imageState.images) image$: Observable<latestForRent[]>;
+  // @Select(imageState.images) image$: Observable<latestForRent[]>;
 
-  constructor(private propertyService: PropertyService,private route: ActivatedRoute,private store: Store) {
+  constructor(private propertyService: PropertyMockService, private route: ActivatedRoute) {
     this.route.queryParams.subscribe((params) => {
       this.getId = params['id']
     })
 
-    this.store.dispatch(new getImages(this.getId));
+    // this.store.dispatch(new getImages(this.getId));
 
-    this.image$.subscribe((res) => {
-      if(res){
-        this.imageID = res
-      }
-    })
+    // this.image$.subscribe((res) => {
+    //   if(res){
+    //     this.imageID = res
+    //   }
+    // })
   }
 
   ngOnInit() {

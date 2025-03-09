@@ -1,17 +1,17 @@
 Backend
-1. Modify db schema to be i18 internationalized
-2. Add API's or calls 
-3. Add ts lint
-4. Add authentication and authorization using Cognito via Facebook and Google
-5. Create build 
-6. Improve dev process : tsc-watch + nodemon
-7. Create publishing pipe-line to AWS
-8. Add AWS code in TypeScript for iac
-9.Add logger
-10. Add images from assets
+1 Modify schema.sql to be i18 internationalized and also add the if exists on table creation
+2 Add API's or calls
+3 Add ts lint
+4 Add authentication and authorization using Cognito via Facebook and Google
+5 Create build
+6 Improve dev process : tsc-watch + nodemon
+7 Create publishing pipe-line to AWS
+8 Add AWS code in TypeScript for iac
+9 Add logger
+10 Add images from assets
 11.Create image resize and server service
-12 .Implement property submit to database
-13 .Change everything to serverless
+12 Implement property submit to database
+13 Change everything to serverless
 
 
 

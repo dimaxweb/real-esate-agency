@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { blogDetails, comments } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-blog-details-left-sidebar',
@@ -22,7 +22,7 @@ export class BlogDetailsLeftSidebarComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     document.documentElement.style.setProperty('--theme-default', this.theme_default3);

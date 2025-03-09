@@ -1,12 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { latestForRent, pagination, tagData } from '../../../../../shared/interface/property';
 import { PropertyBoxGridService } from '../../../../../shared/services/property-box-grid.service';
-import { PropertyService } from '../../../../../shared/services/property.service';
-import { getCategory } from '../../../../../shared/store/actions/category.action';
-import { categoryState } from '../../../../../shared/store/states/category.state';
+import {PropertyService} from "../../../../services/property.service";
 
 
 @Component({
@@ -65,14 +62,12 @@ export class CommonFilterPropertyBoxComponent {
   public area: any;
   public paramsTag: string[];
 
-  @Select(categoryState.category) category$: Observable<latestForRent[]>;
-
   constructor(
     public propertyService: PropertyService,
     private propertyBoxGridService: PropertyBoxGridService,
     private route: ActivatedRoute,
     private router: Router,
-    private store: Store
+
   ) {
     this.route.queryParams.subscribe((params) => {
       this.category = params['category'] ? params['category'].split(',') : [];
@@ -87,25 +82,14 @@ export class CommonFilterPropertyBoxComponent {
       this.maxArea = params['maxArea'] ? params['maxArea'] : [];
       this.pageNo = params['page'] ? params['page'] : this.pageNo;
       this.sortBy = params['sortBy'] ? params['sortBy'] : []
-
-
       this.price = { minPrice: this.minPrice, maxPrice: this.maxPrice };
       this.area = { minArea: this.minArea, maxArea: this.maxArea };
-
       this.paramsTag = [...this.category, ...this.status, ...this.rooms, ...this.beds, ...this.bath, ...this.agency];
       this.paramsTagData.emit(this.paramsTag);
-
-      this.store.dispatch(new getCategory(this.paramsTag, this.price, this.area, this.category, this.sortBy));
-
-      this.category$.subscribe((res) => {
-        this.latestForRentData = res;
-
-        // Pagination
-        this.paginate = this.propertyService.getPager(this.latestForRentData?.length, +this.pageNo );
-        this.paginationData.emit(this.paginate);
-
-        this.latestForRentData = this.latestForRentData?.slice(this.paginate.startIndex,this.paginate.endIndex + 1);
-      });
+      // Pagination
+      this.paginate = this.propertyService.getPager(this.latestForRentData?.length, +this.pageNo );
+      this.paginationData.emit(this.paginate);
+      this.latestForRentData = this.latestForRentData?.slice(this.paginate.startIndex,this.paginate.endIndex + 1);
     });
   }
 

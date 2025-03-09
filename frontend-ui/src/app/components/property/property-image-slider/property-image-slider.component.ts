@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Select, Store } from '@ngxs/store';
+// import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { latestForRent, propertyDetailsData } from '../../../shared/interface/property';
-import { PropertyService } from '../../../shared/services/property.service';
-import { propertyState } from '../../../shared/store/states/property-detail.state';
+import { PropertyMockService } from '../../../shared/services/property-mock.service';
+// import { propertyState } from '../../../shared/store/states/property-detail.state';
 import { getPropertyDetails } from '../../../shared/store/actions/property-detail.action';
 
 @Component({
@@ -28,11 +28,11 @@ export class PropertyImageSliderComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  @Select(propertyState.property) property$: Observable<latestForRent[]>;
+  // @Select(propertyState.property) property$: Observable<latestForRent[]>;
 
   constructor(
-    private propertyService: PropertyService,
-    private store: Store,
+    private propertyService: PropertyMockService,
+    // private store: Store,
     private route: ActivatedRoute)
     {
       this.route.queryParams.subscribe((params) => {
@@ -40,11 +40,11 @@ export class PropertyImageSliderComponent {
 
       })
 
-     this.store.dispatch(new getPropertyDetails(this.propertyId));
-
-      this.property$.subscribe((res) => {
-        this.propertyDetails = res[0]
-      })
+     // this.store.dispatch(new getPropertyDetails(this.propertyId));
+     //
+     //  this.property$.subscribe((res) => {
+     //    this.propertyDetails = res[0]
+     //  })
   }
 
   ngOnInit() {

@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '@ngxs/store';
 import { latestForRent } from '../../../../../shared/interface/property';
-import { PropertyService } from '../../../../../shared/services/property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 import { addCompareItem } from '../../../../../shared/store/actions/compare.action';
 import { addWishlistItem } from '../../../../store/actions/wishlist.action';
 
@@ -30,18 +29,17 @@ export class PropertyBoxThreeComponent {
   };
 
   constructor(
-    public propertyService: PropertyService, 
-    private store: Store, 
+    public propertyService: PropertyMockService,
     private route: ActivatedRoute,
     private router: Router){}
 
 
   addWishlist(data: latestForRent) {
-    this.store.dispatch(new addWishlistItem(data));
+    // this.store.dispatch(new addWishlistItem(data));
   }
 
   addCompare(data: latestForRent) {
-    this.store.dispatch(new addCompareItem(data));
+    // this.store.dispatch(new addCompareItem(data));
   }
 
   getDetails(id:number){

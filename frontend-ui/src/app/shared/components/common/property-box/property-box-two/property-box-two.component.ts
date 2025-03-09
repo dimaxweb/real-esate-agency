@@ -1,11 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '@ngxs/store';
 import { Gallery, ImageSize, ThumbnailsPosition } from 'ng-gallery';
 import { Lightbox } from 'ng-gallery/lightbox';
 import { latestForRent } from '../../../../../shared/interface/property';
 import { PropertyBoxGridService } from '../../../../../shared/services/property-box-grid.service';
-import { PropertyService } from '../../../../../shared/services/property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 import { addCompareItem } from '../../../../../shared/store/actions/compare.action';
 import { addWishlistItem } from '../../../../store/actions/wishlist.action';
 
@@ -42,8 +41,7 @@ export class PropertyBoxTwoComponent {
     public gallery: Gallery,
     public lightbox: Lightbox,
     private propertyBoxGridService: PropertyBoxGridService,
-    public propertyService: PropertyService,
-    private store: Store,
+    public propertyService: PropertyMockService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -67,11 +65,11 @@ export class PropertyBoxTwoComponent {
   }
 
   addWishlist(data: latestForRent) {
-    this.store.dispatch(new addWishlistItem(data));
+    //this.store.dispatch(new addWishlistItem(data));
   }
 
   addCompare(data:latestForRent){
-    this.store.dispatch(new addCompareItem(data));
+    //this.store.dispatch(new addCompareItem(data));
   }
 
   getDetails(id:number){

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import {
   propertyOfDay
 } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-enterprise-property-of-day',
@@ -16,7 +16,7 @@ export class EnterprisePropertyOfDayComponent {
 
   public propertyOfDay: propertyOfDay[] = [];
 
-  constructor(public propertyService: PropertyService) {}
+  constructor(public propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.propertyOfDayData().subscribe((response) => {

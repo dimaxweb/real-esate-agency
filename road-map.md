@@ -4,7 +4,9 @@ Version 1/0
 
 2. Apply image resize on all images and sizes and situations . Test on client and server.
 
-2. Being able to match properties and client in-queries 
+3. Lead management 
+
+2. Being able to match properties and lead in-queries 
    a) The moment some property attribute is updated : make match and save match or delete match ,recalculate 
    b) match object should include : property  & client can have many to many relations 
    c) Join between client and property is through in query

@@ -3,7 +3,7 @@ import { Options } from 'ngx-slider-v2';
 import { agency, baths, beds, category, propertyStatus, propertyType, rooms, location } from '../../../../data/advance-filter';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { agencyParams, areaFilter, bathParams, bedParams, categoryParams, latestForRent, priceFilter, roomsParams, statusParams } from '../../../../../shared/interface/property';
-import { PropertyService } from '../../../../../shared/services/property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 
 @Component({
   selector: 'app-filter-box',
@@ -61,6 +61,8 @@ export class FilterBoxComponent {
   public maxPrice: number;
   public areaArray: number[] = [];
   public maxArea: number;
+  public amount: number;
+
 
 public options: Options = {
     floor: 0,
@@ -71,7 +73,7 @@ public options: Options = {
     floor: 0,
     ceil: 3000
   }
-  constructor(private route: ActivatedRoute, private router: Router, public propertyService: PropertyService) {
+  constructor(private route: ActivatedRoute, private router: Router, public propertyService: PropertyMockService) {
     this.route.queryParams.subscribe((params) => {
       this.getStatusParam = params['status'];
       this.getTypeParam = params['category'];

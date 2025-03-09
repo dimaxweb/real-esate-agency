@@ -1,6 +1,19 @@
 <div class="row review-form gx-3">
+  <div class="col-lg-10 col-md-10 col-sm-6">
+    <div class="row">
+   <div class="col-lg-2 col-md-2 col-sm-6">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="City">
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-6">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Region">
+      </div>
+    </div>
+
   <div class="col-lg-2 col-md-2 col-sm-6">
-   <select class="form-control">
+   <select class="form-control" [(ngModel)]="filter.propertyType">
       <option value="">Property Type</option>
       @for(type of propertyType; track type){
         <option value="{{ type.value }}">{{ type.title }}</option>
@@ -31,9 +44,9 @@
       }
     </select>
   </div>
-
+    </div>
+</div>
   <div class="col-lg-2 col-md-2">
-    <button type="button" class="btn btn-gradient color-4" [routerLink]="['/listing/grid-view/2-grid/left-sidebar']">Search</button>
+    <button type="button" class="btn btn-gradient color-4" [routerLink]="['/listing/grid-view/2-grid/left-sidebar']"  [queryParams]="filter">Search</button>
   </div>
-  
 </div>

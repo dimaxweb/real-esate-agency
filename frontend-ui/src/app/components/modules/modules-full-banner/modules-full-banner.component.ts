@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { banner, brand } from '../../../shared/interface/property';
-import { PropertyService } from '../../../shared/services/property.service';
+import { PropertyMockService } from '../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-modules-full-banner',
@@ -25,7 +25,7 @@ export class ModulesFullBannerComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.bannerData().subscribe((response) => {

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { latestForSale } from '../../../../../shared/interface/property';
-import { PropertyService } from '../../../../../shared/services/property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class PropertyBoxOneComponent {
   @Input() tagClass: string;
 
   constructor(
-    public propertyService: PropertyService,
+    public propertyService: PropertyMockService,
     private route: ActivatedRoute,
     private router: Router) {}
 

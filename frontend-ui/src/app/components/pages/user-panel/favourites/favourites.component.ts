@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Select, Store } from '@ngxs/store';
+// import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { latestForRent, pagination } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 import { addCompareItem } from '../../../../shared/store/actions/compare.action';
 import { removeWishlistItem } from '../../../../shared/store/actions/wishlist.action';
-import { wishlistState } from '../../../../shared/store/states/wishlist.state';
+// import { wishlistState } from '../../../../shared/store/states/wishlist.state';
 
 @Component({
   selector: 'app-favourites',
@@ -34,24 +34,24 @@ export class FavouritesComponent {
   public theme_default3 = '#ff5c41';
   public theme_default4 = '#ff8c41';
 
-  @Select(wishlistState.getWishListData) wishlistData$: Observable<latestForRent[]>;
+  // @Select(wishlistState.getWishListData) wishlistData$: Observable<latestForRent[]>;
 
   constructor(
-    private propertyService: PropertyService,
-    private store:Store,
+    private propertyService: PropertyMockService,
+    // private store:Store,
     private router: Router,
     private route: ActivatedRoute,
   ) {
     this.route.queryParams.subscribe((params) => {
       this.pageNo = params['page'] ? params['page'] : this.pageNo;
 
-      this.wishlistData$.subscribe(res => {
-      this.latestForRentData = res;
-
-      this.paginate = this.propertyService.getPager(this.latestForRentData.length, + this.pageNo);
-
-        this.latestForRentData = this.latestForRentData.slice(this.paginate.startIndex, this.paginate.endIndex + 1);
-      })
+      // this.wishlistData$.subscribe(res => {
+      // this.latestForRentData = res;
+      //
+      // this.paginate = this.propertyService.getPager(this.latestForRentData.length, + this.pageNo);
+      //
+      //   this.latestForRentData = this.latestForRentData.slice(this.paginate.startIndex, this.paginate.endIndex + 1);
+      // })
     })
   }
 
@@ -75,11 +75,11 @@ export class FavouritesComponent {
   }
 
   addCompare(data: latestForRent) {
-    this.store.dispatch(new addCompareItem(data));
+    //this.store.dispatch(new addCompareItem(data));
   }
 
   removeItem(data: number) {
-    this.store.dispatch(new removeWishlistItem(data));
+   // this.store.dispatch(new removeWishlistItem(data));
   }
 
   ngOnDestroy(): void {

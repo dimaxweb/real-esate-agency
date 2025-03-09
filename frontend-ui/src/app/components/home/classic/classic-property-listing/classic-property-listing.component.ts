@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { latestForRent } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-classic-property-listing',
@@ -16,7 +16,7 @@ export class ClassicPropertyListingComponent {
   public active = 1;
   public openTab: number = 1;
 
-  constructor(public propertyService: PropertyService) {}
+  constructor(public propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.latestForRentData().subscribe((response) => {

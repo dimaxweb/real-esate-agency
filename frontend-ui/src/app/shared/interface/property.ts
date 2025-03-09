@@ -462,6 +462,13 @@ export interface areaFilter{
   maxArea: number
 }
 
+export interface geoFilter{
+  countryId: number;
+  regionId: number;
+  streetId: number;
+  cityId: number;
+}
+
 export interface statusParams{
   status : string
 }

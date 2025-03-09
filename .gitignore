@@ -132,3 +132,7 @@ dist
 .angular/
 
 backend/assets
+
+.idea/
+
+./dist

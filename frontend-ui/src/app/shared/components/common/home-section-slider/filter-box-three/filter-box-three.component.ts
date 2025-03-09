@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Options } from 'ngx-slider-v2';
-import { PropertyService } from '../../../../../shared/services/property.service';
+import { PropertyMockService } from '../../../../services/property-mock.service';
 import { agency, baths, beds, category, propertyStatus, propertyType, rooms, location } from '../../../../data/advance-filter';
 
 
@@ -30,5 +30,5 @@ export class FilterBoxThreeComponent {
     ceil: 500,
   };
 
-  constructor(public propertyService: PropertyService){}
+  constructor(public propertyService: PropertyMockService){}
 }

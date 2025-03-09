@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { happyClients } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-classic-happy-client',
@@ -12,7 +12,7 @@ export class ClassicHappyClientComponent {
   public title = 'classic';
   public happyClientsData: happyClients[] = [];
 
-  constructor(private propertyService: PropertyService) {}
+  constructor(private propertyService: PropertyMockService) {}
 
   ngOnInit() {
     this.propertyService.happyClientsData().subscribe((response) => {

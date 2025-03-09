@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { homeSectionSlider } from '../../../../shared/interface/property';
-import { PropertyService } from '../../../../shared/services/property.service';
+import { PropertyMockService } from '../../../../shared/services/property-mock.service';
 
 @Component({
   selector: 'app-slider-filter-home-slider',
@@ -13,7 +13,7 @@ export class SliderFilterHomeSliderComponent {
 
   public homeSectionSliderData : homeSectionSlider[] = [];
 
-  constructor(private propertyService : PropertyService) { }
+  constructor(private propertyService : PropertyMockService) { }
 
   ngOnInit(){
     this.propertyService.homeSliderData().subscribe(response => {
