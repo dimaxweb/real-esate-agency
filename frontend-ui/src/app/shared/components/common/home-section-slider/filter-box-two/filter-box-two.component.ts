@@ -14,4 +14,12 @@ export class FilterBoxTwoComponent {
   public beds = beds;
   public baths = baths;
 
+  public filter = {
+    propertyType: propertyType[0].value,
+    rooms: rooms[0].value,
+    beds: beds[0].value,
+    baths: baths[0].value
+  };
 }
+
+

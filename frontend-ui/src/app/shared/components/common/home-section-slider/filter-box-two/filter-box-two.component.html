@@ -13,7 +13,7 @@
     </div>
 
   <div class="col-lg-2 col-md-2 col-sm-6">
-   <select class="form-control">
+   <select class="form-control" [(ngModel)]="filter.propertyType">
       <option value="">Property Type</option>
       @for(type of propertyType; track type){
         <option value="{{ type.value }}">{{ type.title }}</option>
@@ -47,6 +47,6 @@
     </div>
 </div>
   <div class="col-lg-2 col-md-2">
-    <button type="button" class="btn btn-gradient color-4" [routerLink]="['/listing/grid-view/2-grid/left-sidebar']">Search</button>
+    <button type="button" class="btn btn-gradient color-4" [routerLink]="['/listing/grid-view/2-grid/left-sidebar']"  [queryParams]="filter">Search</button>
   </div>
 </div>
